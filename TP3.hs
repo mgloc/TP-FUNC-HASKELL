@@ -230,6 +230,7 @@ instance Show Exp' where
 
 instance Show Exp where
    show (App Mul g d) = show g ++ show Mul ++ show d
+   show (App Div g d) = show g ++ show Div ++ show d
    show (App o g d) = "("++show g ++ show o ++ show d++")"
    show (Val i) = show i
 
