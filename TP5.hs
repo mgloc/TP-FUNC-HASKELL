@@ -268,6 +268,8 @@ bfs [] = []
 arbre :: Rose Int
 arbre = (Rose 1 [Rose 2 [Rose 23 []],Rose 3 [], Rose 4 [Rose 5 []]])
 
+test_arbre :: Bool
+test_arbre = bfs [arbre] == [Rose 1 [Rose 2 [Rose 23 []],Rose 3 [],Rose 4 [Rose 5 []]],Rose 2 [Rose 23 []],Rose 3 [],Rose 4 [Rose 5 []],Rose 5 [],Rose 23 []]
 
 -- TODO 5: a Map from key to value
 -- where keys are sorted in Fork l (k,a) r: (all keys of l <= k) && (k < all keys of r)
