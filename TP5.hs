@@ -331,11 +331,11 @@ type SizedTree a = (Int,CTree a)
 
 type ListArray a = [SizedTree a]
 
-lookupFA :: ListArray a -> Int -> a -- O(nlog_2(n)) where n is the size/number of elements of the array
+lookupFA :: ListArray a -> Int -> a -- O(log_2(n)) where n is the size/number of elements of the array
 lookupFA ((s,t):sts) i | i<s       = lookupCTree s t i
                        | otherwise = lookupFA sts (i-s)
 
-updateFA :: ListArray a -> Int -> a -> ListArray a -- O(nlog(n)) where n is the size/number of elements of the array
+updateFA :: ListArray a -> Int -> a -> ListArray a -- O(log_2(n)) where n is the size/number of elements of the array
 updateFA ((s,t):sts) i y | i<s       = (s,updateCTree s t i y):sts
                          | otherwise = (s,t):updateFA sts (i-s) y
 
